@@ -8,7 +8,7 @@ export interface Props {
     file: string,
     title: string,
     image: ImageMetadata,
-    exif: Record<string, any>
+    // exif: Record<string, any>
   }[]
 }
 
@@ -50,7 +50,7 @@ const { id, images } = Astro.props
         <Image src={image.image} alt={image.title} width={600} class="rounded" />
         <span class="pswp-caption-content">
           {image.title}
-          {image.exif && <span>{' (' + image.exif.Make + ' ' + image.exif.Model  + ')'}</span>}
+          {/* {image.exif && <span>{' (' + image.exif.Make + ' ' + image.exif.Model  + ')'}</span>} */}
         </span>
       </a>
       <figcaption itemprop="caption description" class="rounded">
