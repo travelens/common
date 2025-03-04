@@ -1,5 +1,3 @@
-import type { ImageMetadata } from 'astro'
-
 export const SiteMetadata = {
   site: 'https://travelens.github.io',
   title: 'travelens',
@@ -9,7 +7,7 @@ export const SiteMetadata = {
     twitter: '@chris1tham',
     url: 'https://christham.net',
     email: 'chris@christham.net',
-    summary: 'Outrageous actualiser.',
+    summary: 'Outrageous actualiser.'
   },
   org: {
     name: 'Hello Tham',
@@ -17,7 +15,7 @@ export const SiteMetadata = {
     url: 'https://hellotham.com',
     email: 'info@hellotham.com',
     summary:
-      'Hello Tham is a boutique management consulting firm. We specialise in Business and IT strategies, operating models, strategic roadmaps, enterprise architecture, analytics and business process design.',
+      'Hello Tham is a boutique management consulting firm. We specialise in Business and IT strategies, operating models, strategic roadmaps, enterprise architecture, analytics and business process design.'
   },
   location: 'Sydney, Australia',
   latlng: [-33.86785, 151.20732] as [number, number],
@@ -26,32 +24,32 @@ export const SiteMetadata = {
     {
       name: 'LinkedIn',
       link: 'https://www.linkedin.com/in/christham',
-      icon: 'linkedin',
+      icon: 'linkedin'
     },
     {
       name: 'Facebook',
       link: 'https://www.facebook.com/chris1tham',
-      icon: 'facebook',
+      icon: 'facebook'
     },
     {
       name: 'Instagram',
       link: 'https://www.instagram.com/chris1tham',
-      icon: 'instagram',
+      icon: 'instagram'
     },
     {
       name: 'Github',
       link: 'https://github.com/travelens',
-      icon: 'github',
-    },
+      icon: 'github'
+    }
   ],
-  buildTime: new Date(),
+  buildTime: new Date()
 }
 
 export const NavigationLinks = [
   { name: 'Trips', href: '/trips' },
   { name: 'Places', href: '/#places' },
   { name: 'Tags', href: '/tags' },
-  { name: 'About', href: '/#about' },
+  { name: 'About', href: '/#about' }
 ]
 
 export const Websites = [
@@ -70,5 +68,5 @@ export const Websites = [
   {
     website: 'Visual Voyager',
     link: 'https://visualvoyager.net'
-  },
+  }
 ]

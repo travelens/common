@@ -1,5 +1,5 @@
 ---
-import exifr from 'exifr'
+// import exifr from 'exifr'
 import Lightbox from './Lightbox.astro'
 
 interface Props {
@@ -19,7 +19,7 @@ const folderFiles = Object.keys(imageFiles).filter((image) => image.search(folde
 //   exifs.push(exif)
 // }
 const images = folderFiles
-  .map((image, i) => {
+  .map((image) => {
     return {
       file: image,
       title: image.slice(0, image.lastIndexOf('.')).slice(image.lastIndexOf('/') + 1),

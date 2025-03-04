@@ -1,6 +1,6 @@
 ---
 import type { ImageMetadata } from 'astro'
-import { SEO } from 'astro-seo'
+import { SEO, type TwitterCardType } from 'astro-seo'
 import type {
   Article,
   BreadcrumbList,
@@ -48,7 +48,7 @@ const openGraph = {
   }
 }
 const twitter = {
-  card: 'summary_large_image',
+  card: 'summary_large_image' as TwitterCardType,
   site: SiteMetadata.org.twitter,
   creator: SiteMetadata.author.twitter
 }
