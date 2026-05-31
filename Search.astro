@@ -102,14 +102,15 @@
 </search-modal>
 
 <script>
-  import FlexSearch from 'flexsearch'
+  import * as FlexSearch from 'flexsearch'
 
   interface SearchDoc {
+    [key: string]: string | number | boolean | null | string[]
     url: string
     title: string
     description: string
-    author?: string
-    pubDate?: string
+    author: string | null
+    pubDate: string | null
   }
 
   class SearchModal extends HTMLElement {
