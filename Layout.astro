@@ -17,7 +17,6 @@ const { title, description, date, tags, image } = Astro.props
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
@@ -38,13 +37,15 @@ const { title, description, date, tags, image } = Astro.props
       }
     </style>
   </head>
-  <body class="text-gray-700 font-sans bg-rosely-sugar antialiased">
+  <body class="text-rosely-granite font-sans bg-rosely-sugar antialiased">
     <a
       href="#main-content"
       class="sr-only focus:text-white focus:px-4 focus:py-2 focus:outline-none focus:rounded focus:bg-rosely-orchid focus:left-4 focus:top-4 focus:fixed focus:z-50 focus:not-sr-only"
     >
       Skip to main content
     </a>
-    <slot />
+    <main id="main-content">
+      <slot />
+    </main>
   </body>
 </html>
