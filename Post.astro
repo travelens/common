@@ -22,8 +22,7 @@ const { post } = Astro.props
   tags={post.data.tags}
 >
   <Header />
-  <main id="main-content">
-    <div class="bg-black flex w-full items-center justify-center relative overflow-hidden -mt-24">
+  <div class="bg-black flex w-full items-center justify-center relative overflow-hidden -mt-24">
       <div class="h-96 relative">
         <Image src={post.data.image} class="opacity-75 w-full object-cover" alt={post.data.title} />
       </div>
@@ -66,6 +65,5 @@ const { post } = Astro.props
       <hr class="border-0 rounded bg-pink-200 h-1 w-full" />
     </div>
     <slot />
-  </main>
   <Footer />
 </Layout>
