@@ -34,7 +34,7 @@ const { points } = Astro.props
       )
       const polyline = L.polyline(
         points.map((p) => p.latlng),
-        { color: '#b565a7' }
+        { color: '#b565a7' /* rosely-orchid */ }
       ).addTo(map)
       points.forEach((p) => L.marker(p.latlng).addTo(map).bindPopup(p.title))
       map.fitBounds(polyline.getBounds())

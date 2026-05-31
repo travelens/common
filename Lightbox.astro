@@ -17,8 +17,8 @@ const { id, images } = Astro.props
 
 <style>
   .pswp--custom-icon-colors {
-    --pswp-icon-color: #f4eee8;
-    --pswp-icon-color-secondary: #b565a7;
+    --pswp-icon-color: var(--color-rosely-sugar);
+    --pswp-icon-color-secondary: var(--color-rosely-orchid);
   }
 
   .pswp__dynamic-caption--aside {
@@ -51,7 +51,7 @@ const { id, images } = Astro.props
           data-pswp-width={image.image.width}
           data-pswp-height={image.image.height}
         >
-          <Image src={image.image} alt={image.title} width={600} class="rounded" />
+          <Image src={image.image} alt={image.title} width={600} class="rounded-md" />
           <span class="pswp-caption-content" aria-hidden="true">
             {image.title}
             {/* {image.exif && <span>{' (' + image.exif.Make + ' ' + image.exif.Model  + ')'}</span>} */}
