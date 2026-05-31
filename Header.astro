@@ -3,67 +3,116 @@ import { NavigationLinks } from './config'
 import Search from './Search.astro'
 ---
 
-<div
-  x-data='{showMenu: false}'
-  class='h-24 z-40 relative container mx-auto px-6 flex items-center justify-between text-white'
+<header
+  class="text-white mx-auto px-6 container flex h-24 items-center justify-between relative z-40"
 >
   <div>
-    <a href='/' class='lowercase font-bold text-2xl hover:text-pink-200'>travelens</a>
+    <a href="/" class="text-2xl font-bold lowercase hover:text-pink-200">travelens</a>
   </div>
-  <div class='flex items-center justify-center font-normal relative z-10'>
-    <button class='md:hidden' x-on:click='showMenu = true'>
+  <nav
+    aria-label="Main navigation"
+    class="font-normal flex items-center justify-center relative z-10"
+  >
+    <button
+      id="menu-open"
+      class="md:hidden"
+      aria-label="Open navigation menu"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+    >
       <svg
-        xmlns='http://www.w3.org/2000/svg'
-        class='text-white h-6 w-6'
-        fill='none'
-        viewBox='0 0 24 24'
-        stroke='currentColor'
+        xmlns="http://www.w3.org/2000/svg"
+        class="text-white h-6 w-6"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        aria-hidden="true"
       >
         <path
-          stroke-linecap='round'
-          stroke-linejoin='round'
-          stroke-width='2'
-          d='M4 6h16M4 12h16M4 18h16'></path>
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M4 6h16M4 12h16M4 18h16"></path>
       </svg>
     </button>
-    <div class='hidden md:flex items-center justify-center'>
+    <div class="hidden items-center justify-center md:flex">
       {
         NavigationLinks.map((link) => (
-          <a href={link.href} class='mx-6 hover:text-pink-200'>
+          <a
+            href={link.href}
+            class="mx-6 rounded hover:text-pink-200 focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-2"
+          >
             {link.name}
           </a>
         ))
       }
     </div>
-  </div>
-  <div class='flex'>
+  </nav>
+  <div class="flex">
     <Search />
   </div>
-  <div
-    x-show='showMenu'
-    class='fixed inset-0 w-screen h-screen md:hidden flex flex-col items-center justify-center text-2xl space-y-4 bg-pink-100 text-black z-40'
+  <nav
+    id="mobile-menu"
+    aria-label="Mobile navigation"
+    hidden
+    class="text-2xl text-black bg-pink-100 flex flex-col h-screen w-screen items-center inset-0 justify-center fixed z-40 space-y-4 md:hidden"
   >
-    <button x-on:click='showMenu = false' class='absolute top-0 right-0 mt-12 mr-12 text-pink-600'>
+    <button
+      id="menu-close"
+      class="text-pink-700 mr-12 mt-12 right-0 top-0 absolute"
+      aria-label="Close navigation menu"
+    >
       <svg
-        xmlns='http://www.w3.org/2000/svg'
-        class='h-10 w-10'
-        fill='none'
-        viewBox='0 0 24 24'
-        stroke='currentColor'
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-10 w-10"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        aria-hidden="true"
       >
         <path
-          stroke-linecap='round'
-          stroke-linejoin='round'
-          stroke-width='2'
-          d='M6 18L18 6M6 6l12 12'></path>
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M6 18L18 6M6 6l12 12"></path>
       </svg>
     </button>
     {
       NavigationLinks.map((link) => (
-        <a href={link.href} class='mx-6 hover:text-pink-600'>
+        <a
+          href={link.href}
+          class="mx-6 rounded hover:text-pink-600 focus-visible:outline-2 focus-visible:outline-rosely-orchid focus-visible:outline-offset-2"
+        >
           {link.name}
         </a>
       ))
     }
-  </div>
-</div>
+  </nav>
+</header>
+
+<script>
+  const menu = document.getElementById('mobile-menu') as HTMLElement
+  const openBtn = document.getElementById('menu-open') as HTMLButtonElement
+  const closeBtn = document.getElementById('menu-close') as HTMLButtonElement
+
+  const openMenu = () => {
+    menu.removeAttribute('hidden')
+    openBtn.setAttribute('aria-expanded', 'true')
+    closeBtn.focus()
+  }
+
+  const closeMenu = () => {
+    menu.setAttribute('hidden', '')
+    openBtn.setAttribute('aria-expanded', 'false')
+    openBtn.focus()
+  }
+
+  openBtn.addEventListener('click', openMenu)
+  closeBtn.addEventListener('click', closeMenu)
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !menu.hasAttribute('hidden')) {
+      closeMenu()
+    }
+  })
+</script>
