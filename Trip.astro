@@ -22,51 +22,53 @@ const { trip } = Astro.props
   tags={trip.data.tags}
 >
   <Header />
-  <div class="bg-black flex w-full items-center justify-center relative overflow-hidden -mt-24">
-      <div class="h-96 relative">
-        <Image src={trip.data.image} class="opacity-50 w-full object-cover" alt={trip.data.title} />
-      </div>
+  <div
+    class="bg-rosely-black flex w-full items-center justify-center relative overflow-hidden -mt-24"
+  >
+    <div class="h-96 relative">
+      <Image src={trip.data.image} class="opacity-60 w-full object-cover" alt={trip.data.title} />
     </div>
-    <div class="mx-auto px-12 pt-12 bg-white max-w-4xl relative z-10 -mt-32 lg:px-24">
-      <h2 class="text-xs text-neutral-600 tracking-widest flex uppercase items-center">
-        <a href={'/place/' + slugify(trip.data.place)} class="hover:text-pink-700">
-          <span class="i-fa6-solid-globe h-4 w-4" aria-hidden="true"></span>
-          <span class="ml-1">{trip.data.place}</span>
-        </a>
-        <span class="i-fa6-solid-angles-right mx-4 h-4 w-4" aria-hidden="true"></span>
-        <span class="i-fa6-solid-location-arrow h-4 w-4" aria-hidden="true"></span>
-        <span class="ml-1">{trip.data.location}</span>
-      </h2>
-      <h1 class="text-2xl text-gray-900 font-display mt-4 md:text-3xl">
-        {trip.data.title}
-      </h1>
-      <Tags tags={trip.data.tags} />
-      <div class="text-neutral-600 my-2 flex items-center">
-        <span class="i-fa6-solid-calendar-days h-4 w-4" aria-hidden="true"></span>
-        <span class="ml-1">
-          {
-            new Date(trip.data.start).toLocaleString('en-AU', {
-              dateStyle: 'long',
-              timeZone: trip.data.timezone
-            })
-          }
-        </span>
-        <span class="i-fa6-solid-arrow-right mx-1 h-4 w-4"></span>
-        <span class="ml-1">
-          {
-            new Date(trip.data.end).toLocaleString('en-AU', {
-              dateStyle: 'long',
-              timeZone: trip.data.timezone
-            })
-          }
-        </span>
-      </div>
+  </div>
+  <div class="mx-auto px-12 pt-12 bg-rosely-sugar max-w-4xl relative z-10 -mt-32 lg:px-24">
+    <h2 class="text-xs text-rosely-granite tracking-widest flex uppercase items-center">
+      <a href={'/place/' + slugify(trip.data.place)} class="hover:text-rosely-morning">
+        <span class="i-fa6-solid-globe h-4 w-4" aria-hidden="true"></span>
+        <span class="ml-1">{trip.data.place}</span>
+      </a>
+      <span class="i-fa6-solid-angles-right mx-4 h-4 w-4" aria-hidden="true"></span>
+      <span class="i-fa6-solid-location-arrow h-4 w-4" aria-hidden="true"></span>
+      <span class="ml-1">{trip.data.location}</span>
+    </h2>
+    <h1 class="text-2xl text-rosely-black font-display mt-4 md:text-3xl">
+      {trip.data.title}
+    </h1>
+    <Tags tags={trip.data.tags} />
+    <div class="text-rosely-granite my-2 flex items-center">
+      <span class="i-fa6-solid-calendar-days h-4 w-4" aria-hidden="true"></span>
+      <span class="ml-1">
+        {
+          new Date(trip.data.start).toLocaleString('en-AU', {
+            dateStyle: 'long',
+            timeZone: trip.data.timezone
+          })
+        }
+      </span>
+      <span class="i-fa6-solid-arrow-right mx-1 h-4 w-4"></span>
+      <span class="ml-1">
+        {
+          new Date(trip.data.end).toLocaleString('en-AU', {
+            dateStyle: 'long',
+            timeZone: trip.data.timezone
+          })
+        }
+      </span>
+    </div>
 
-      <div class="mt-6 italic prose prose-sm sm:prose lg:prose-lg">
-        {trip.data.description}
-      </div>
-      <hr class="border-0 rounded bg-pink-200 h-1 w-full" />
+    <div class="mt-6 italic prose prose-sm sm:prose lg:prose-lg">
+      {trip.data.description}
     </div>
-    <slot />
+    <hr class="border-0 rounded-full bg-rosely-barely h-1 w-full" />
+  </div>
+  <slot />
   <Footer />
 </Layout>
